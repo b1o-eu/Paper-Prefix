@@ -1,0 +1,13 @@
+name: Paper-Prefix
+version: 1.0
+main: eu.b1o.mc.paperprefix.PaperPrefix
+api-version: 1.21
+author: Julia
+description: A simple plugin to set player prefixes.
+commands:
+  status:
+    description: Sets your prefix.
+    usage: /status <prefix>
+  prefix:
+    description: Sets your prefix.
+    usage: /prefix <prefix>
