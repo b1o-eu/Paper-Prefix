@@ -14,8 +14,9 @@ public class PrefixTabCompleter implements TabCompleter {
 
     private static final List<String> COLORS = Arrays.asList(
         "red", "blue", "green", "yellow", "gold", "aqua", "purple", 
-        "white", "black", "gray", "darkred", "darkblue", "darkgreen", 
-        "darkaqua", "darkpurple", "darkgray"
+        "white", "black", "gray", "dark_red", "dark_blue", "dark_green", 
+        "dark_aqua", "dark_purple", "dark_gray", "minecoin_gold", "quartz", "iron", 
+        "netherite", "redstone", "copper", "emerald", "diamond", "lapis", "amethyst"
     );
 
     @Override

@@ -19,12 +19,12 @@ public class PrefixExpansion extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getAuthor() {
-        return "Julia";
+        return "Link_1503";
     }
 
     @Override
     public @NotNull String getVersion() {
-        return "1.0";
+        return "1.1-Beta";
     }
 
     @Override
