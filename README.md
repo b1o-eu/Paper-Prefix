@@ -1,34 +1,34 @@
+# Paper Prefix
+## A simple and flexible prefix plugin designed for your PaperMC server.
 
-# Paper-Prefix
+Give your players the ability to stand out and personalize their identity! **Paper Prefix** is a lightweight and user-friendly plugin that allows players to set their own custom prefixes, which will appear in chat, the player list, and above their nametags.
 
 ## Features
 
-**Set Your Own Prefix**  
-Players can set a custom prefix text and choose from a variety of colors using:
+* Easy for Players: Players can set their own prefix and color with a simple command: ``/prefix set <text> [color]``.
+* Rich Color Support: Supports all standard Minecraft colors, plus unique Bedrock colors like ``netherite``, ``emerald``, ``amethyst``, and ``minecoin_gold``.
+* Seamless Integration: Prefixes are automatically displayed in three key places:
+  * In-game chat
+  * The player list (tab menu)
+  * Above player nametags
+* Persistent: Prefixes are saved and automatically re-applied when a player joins the server.
+* PlaceholderAPI Support: Comes with a ``%paperprefix_prefix%`` placeholder to integrate with other plugins.
 
-```
-/prefix set <text> [color]
-```
+**Lightweight**: Designed to be efficient and not impact your server's performance.
 
-**Remove Your Prefix**  
-Easily remove your current prefix with:
+## Commands
+``/prefix set <text> [color]`` - Sets your personal prefix.
 
-```
-/prefix remove
-```
+``/prefix remove`` - Removes your current prefix.
 
-**Copy Prefixes**  
-Copy another online player's prefix using:
+``/prefix join <username>`` - Copies the prefix from a player.
 
-```
-/prefix join <username>
-```
+The alias ``/status`` can also be used.
 
-**Persistent Storage**  
-Prefixes are saved and will persist across server restarts.
+## Installation
+* Make sure you are running a PaperMC server.
+* Download the latest Paper-Prefix.jar file.
+* Drop the file into your server's /plugins folder.
+* Restart your server.
 
-**PlaceholderAPI Support**  
-Integrates with PlaceholderAPI to use the prefix in other plugins.
-
-**Dynamic Nametags**  
-Prefixes are automatically applied to player nametags, chat, and the player list.
+That's it! No complicated configuration is needed. Your players can start setting their prefixes right away.
