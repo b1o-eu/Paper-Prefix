@@ -26,9 +26,9 @@ Give your players the ability to stand out and personalize their identity! **Pap
 The alias ``/status`` can also be used.
 
 ## Installation
-* Make sure you are running a PaperMC server.
-* Download the latest Paper-Prefix.jar file.
-* Drop the file into your server's /plugins folder.
+* Make sure you are running a PaperMC or PaperMC compatible server.
+* Download the latest ``Paper-Prefix.jar`` file.
+* Drop the file into your server's ``/plugins`` folder.
 * Restart your server.
 
 That's it! No complicated configuration is needed. Your players can start setting their prefixes right away.
