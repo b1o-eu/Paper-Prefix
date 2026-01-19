@@ -18,6 +18,8 @@ import java.util.UUID;
 
 public final class PaperPrefix extends JavaPlugin implements Listener {
 
+    private static final int BSTATS_PLUGIN_ID = 28926;
+
     private File prefixFile;
     private FileConfiguration prefixConfig;
     private Map<UUID, String> prefixes = new HashMap<>();
@@ -26,8 +28,7 @@ public final class PaperPrefix extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Initialize bStats metrics
-        int pluginId = 28926;
-        Metrics metrics = new Metrics(this, pluginId);
+        Metrics metrics = new Metrics(this, BSTATS_PLUGIN_ID);
 
         // Setup prefix storage
         prefixFile = new File(getDataFolder(), "prefixes.yml");
