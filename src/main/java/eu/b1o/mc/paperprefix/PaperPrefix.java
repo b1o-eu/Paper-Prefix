@@ -1,5 +1,6 @@
 package eu.b1o.mc.paperprefix;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -24,6 +25,10 @@ public final class PaperPrefix extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        // Initialize bStats metrics
+        int pluginId = 28926;
+        Metrics metrics = new Metrics(this, pluginId);
+
         // Setup prefix storage
         prefixFile = new File(getDataFolder(), "prefixes.yml");
         if (!prefixFile.exists()) {
