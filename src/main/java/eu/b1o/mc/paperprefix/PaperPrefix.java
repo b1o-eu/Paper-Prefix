@@ -1,5 +1,6 @@
 package eu.b1o.mc.paperprefix;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -57,6 +58,10 @@ public final class PaperPrefix extends JavaPlugin implements Listener {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new PrefixExpansion(this).register();
         }
+
+        // Initialize bStats
+        int pluginId = 28926;
+        new Metrics(this, pluginId);
 
         // Apply prefixes to online players
         for (Player player : Bukkit.getOnlinePlayers()) {
