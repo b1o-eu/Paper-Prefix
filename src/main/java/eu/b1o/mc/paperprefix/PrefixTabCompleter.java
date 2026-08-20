@@ -13,16 +13,15 @@ import java.util.List;
 public class PrefixTabCompleter implements TabCompleter {
 
     private static final List<String> COLORS = Arrays.asList(
-        "red", "blue", "green", "yellow", "gold", "aqua", "purple", 
-        "white", "black", "gray", "dark_red", "dark_blue", "dark_green", 
-        "dark_aqua", "dark_purple", "dark_gray", "minecoin_gold", "quartz", "iron", 
-        "netherite", "redstone", "copper", "emerald", "diamond", "lapis", "amethyst"
-    );
+            "red", "blue", "green", "yellow", "gold", "aqua", "purple",
+            "white", "black", "gray", "dark_red", "dark_blue", "dark_green",
+            "dark_aqua", "dark_purple", "dark_gray", "minecoin_gold", "quartz", "iron",
+            "netherite", "redstone", "copper", "emerald", "diamond", "lapis", "amethyst");
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> suggestions = new ArrayList<>();
-        
+
         if (args.length == 1) {
             suggestions.add("set");
             suggestions.add("remove");
@@ -46,7 +45,7 @@ public class PrefixTabCompleter implements TabCompleter {
                 }
             }
         }
-        
+
         return suggestions;
     }
 }

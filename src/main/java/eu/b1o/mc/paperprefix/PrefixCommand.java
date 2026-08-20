@@ -26,10 +26,9 @@ public class PrefixCommand implements CommandExecutor {
         BEDROCK_HEX_MAP.put('u', "#9A5CC6"); // material_amethyst
     }
 
-
     private final PaperPrefix plugin;
     private static final Map<String, String> COLOR_MAP = new HashMap<>();
-    
+
     static {
         // Standard Colors
         COLOR_MAP.put("black", "&0");
@@ -91,17 +90,18 @@ public class PrefixCommand implements CommandExecutor {
                             formattedPrefix = replaceBedrockCodesWithHex(formattedPrefix);
                             plugin.setPlayerPrefix(player.getUniqueId(), formattedPrefix);
                             plugin.applyPrefix(player);
-                            player.sendMessage(ChatColor.GREEN + "Your prefix has been set to " + ChatColor.WHITE + formattedPrefix);
+                            player.sendMessage(ChatColor.GREEN + "Your prefix has been set to " + ChatColor.WHITE
+                                    + formattedPrefix);
                         } else {
                             player.sendMessage(ChatColor.RED + "Usage: /prefix set <text> [color]");
-                            player.sendMessage(ChatColor.GRAY + "Colors: red, blue, green, yellow, gold, aqua, purple, white, black, gray");
+                            player.sendMessage(ChatColor.GRAY
+                                    + "Colors: red, blue, green, yellow, gold, aqua, purple, white, black, gray");
                             player.sendMessage(ChatColor.GRAY + "Formatting: use & or § codes, e.g. §l for bold");
                         }
                         break;
                     case "remove":
                         plugin.removePlayerPrefix(player.getUniqueId());
-                        player.setDisplayName(player.getName());
-                        player.setPlayerListName(player.getName());
+                        plugin.applyPrefix(player);
                         player.sendMessage(ChatColor.GREEN + "Your prefix has been removed.");
                         break;
                     case "join":
@@ -115,9 +115,11 @@ public class PrefixCommand implements CommandExecutor {
                                 if (targetPrefix != null) {
                                     plugin.setPlayerPrefix(player.getUniqueId(), targetPrefix);
                                     plugin.applyPrefix(player);
-                                    player.sendMessage(ChatColor.GREEN + "You copied " + targetPlayer.getName() + "'s prefix: " + targetPrefix);
+                                    player.sendMessage(ChatColor.GREEN + "You copied " + targetPlayer.getName()
+                                            + "'s prefix: " + targetPrefix);
                                 } else {
-                                    player.sendMessage(ChatColor.RED + targetPlayer.getName() + " doesn't have a prefix.");
+                                    player.sendMessage(
+                                            ChatColor.RED + targetPlayer.getName() + " doesn't have a prefix.");
                                 }
                             } else {
                                 player.sendMessage(ChatColor.RED + "Player not found: " + targetName);
@@ -139,7 +141,8 @@ public class PrefixCommand implements CommandExecutor {
         return true;
     }
 
-    // Replace Bedrock color codes (e.g., §g) with Paper hex color codes (e.g., §x§D§D§D§6§0§5)
+    // Replace Bedrock color codes (e.g., §g) with Paper hex color codes (e.g.,
+    // §x§D§D§D§6§0§5)
     private String replaceBedrockCodesWithHex(String input) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
@@ -160,18 +163,23 @@ public class PrefixCommand implements CommandExecutor {
 
     // Convert #RRGGBB to Paper hex color code (e.g., §x§R§R§G§G§B§B)
     private String toPaperHexColor(String hex) {
-        if (hex.startsWith("#")) hex = hex.substring(1);
-        if (hex.length() != 6) return "";
+        if (hex.startsWith("#"))
+            hex = hex.substring(1);
+        if (hex.length() != 6)
+            return "";
         StringBuilder sb = new StringBuilder("§x");
         for (char ch : hex.toCharArray()) {
             sb.append('§').append(ch);
         }
         return sb.toString();
     }
+
     private void sendUsage(CommandSender sender) {
         sender.sendMessage(ChatColor.YELLOW + "Prefix Command Usage:");
-        sender.sendMessage(ChatColor.YELLOW + "/prefix set <text> [color] " + ChatColor.GRAY + "- Set your prefix with optional color.");
+        sender.sendMessage(ChatColor.YELLOW + "/prefix set <text> [color] " + ChatColor.GRAY
+                + "- Set your prefix with optional color.");
         sender.sendMessage(ChatColor.YELLOW + "/prefix remove " + ChatColor.GRAY + "- Remove your current prefix.");
-        sender.sendMessage(ChatColor.YELLOW + "/prefix join <username> " + ChatColor.GRAY + "- Copy another player's prefix.");
+        sender.sendMessage(
+                ChatColor.YELLOW + "/prefix join <username> " + ChatColor.GRAY + "- Copy another player's prefix.");
     }
 }

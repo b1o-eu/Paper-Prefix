@@ -100,8 +100,11 @@ public final class PaperPrefix extends JavaPlugin implements Listener {
         if (prefix != null) {
             player.setDisplayName(prefix + " <" + player.getName() + ">");
             player.setPlayerListName(prefix + " " + player.getName());
-            nametagListener.updateNametag(player);
+        } else {
+            player.setDisplayName(player.getName());
+            player.setPlayerListName(player.getName());
         }
+        nametagListener.updateNametag(player);
     }
 
     private void loadPrefixes() {
